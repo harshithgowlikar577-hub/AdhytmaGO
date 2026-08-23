@@ -1,0 +1,66 @@
+{"input": "Griha Pravesham", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "griha pravesham"}
+{"input": "griha pravesh", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "griha pravesh"}
+{"input": "house warming", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "house warming"}
+{"input": "housewarming ceremony", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "housewarming ceremony"}
+{"input": "new house pooja", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "new house pooja"}
+{"input": "గృహప్రవేశం", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "గృహప్రవేశం"}
+{"input": "gruha pravesham", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "gruha pravesham"}
+{"input": "shifting to new house ceremony", "entity": "ceremony_type", "extracted": "Griha Pravesham", "normalized_from": "shifting to new house"}
+{"input": "wedding", "entity": "ceremony_type", "extracted": "Wedding Ceremony", "normalized_from": "wedding"}
+{"input": "marriage", "entity": "ceremony_type", "extracted": "Wedding Ceremony", "normalized_from": "marriage"}
+{"input": "kalyanam", "entity": "ceremony_type", "extracted": "Wedding Ceremony", "normalized_from": "kalyanam"}
+{"input": "pelli", "entity": "ceremony_type", "extracted": "Wedding Ceremony", "normalized_from": "pelli"}
+{"input": "వివాహం", "entity": "ceremony_type", "extracted": "Wedding Ceremony", "normalized_from": "వివాహం"}
+{"input": "naming ceremony", "entity": "ceremony_type", "extracted": "Naming Ceremony", "normalized_from": "naming ceremony"}
+{"input": "namakaranam", "entity": "ceremony_type", "extracted": "Naming Ceremony", "normalized_from": "namakaranam"}
+{"input": "నామకరణం", "entity": "ceremony_type", "extracted": "Naming Ceremony", "normalized_from": "నామకరణం"}
+{"input": "baby naming", "entity": "ceremony_type", "extracted": "Naming Ceremony", "normalized_from": "baby naming"}
+{"input": "satyanarayan puja", "entity": "ceremony_type", "extracted": "Satyanarayan Puja", "normalized_from": "satyanarayan puja"}
+{"input": "satyanarayana vratam", "entity": "ceremony_type", "extracted": "Satyanarayan Puja", "normalized_from": "satyanarayana vratam"}
+{"input": "సత్యనారాయణ వ్రతం", "entity": "ceremony_type", "extracted": "Satyanarayan Puja", "normalized_from": "సత్యనారాయణ వ్రతం"}
+{"input": "upanayanam", "entity": "ceremony_type", "extracted": "Upanayanam", "normalized_from": "upanayanam"}
+{"input": "thread ceremony", "entity": "ceremony_type", "extracted": "Upanayanam", "normalized_from": "thread ceremony"}
+{"input": "ఉపనయనం", "entity": "ceremony_type", "extracted": "Upanayanam", "normalized_from": "ఉపనయనం"}
+{"input": "vastu puja", "entity": "ceremony_type", "extracted": "Vastu Puja", "normalized_from": "vastu puja"}
+{"input": "వాస్తు పూజ", "entity": "ceremony_type", "extracted": "Vastu Puja", "normalized_from": "వాస్తు పూజ"}
+{"input": "Hyderabad", "entity": "location", "extracted": "Hyderabad", "normalized_from": "Hyderabad"}
+{"input": "hyd", "entity": "location", "extracted": "Hyderabad", "normalized_from": "hyd"}
+{"input": "hydrabad", "entity": "location", "extracted": "Hyderabad", "normalized_from": "hydrabad"}
+{"input": "Gachibowli", "entity": "location", "extracted": "Gachibowli", "normalized_from": "gachibowli"}
+{"input": "Kondapur", "entity": "location", "extracted": "Kondapur", "normalized_from": "kondapur"}
+{"input": "Kukatpally", "entity": "location", "extracted": "Kukatpally", "normalized_from": "kukatpally"}
+{"input": "KPHB", "entity": "location", "extracted": "KPHB Colony", "normalized_from": "kphb"}
+{"input": "Secunderabad", "entity": "location", "extracted": "Secunderabad", "normalized_from": "secunderabad"}
+{"input": "sec-bad", "entity": "location", "extracted": "Secunderabad", "normalized_from": "sec-bad"}
+{"input": "hitech city", "entity": "location", "extracted": "Hitech City", "normalized_from": "hitech city"}
+{"input": "హైదరాబాద్", "entity": "location", "extracted": "Hyderabad", "normalized_from": "హైదరాబాద్"}
+{"input": "Telugu", "entity": "language", "extracted": "Telugu", "normalized_from": "telugu"}
+{"input": "తెలుగు", "entity": "language", "extracted": "Telugu", "normalized_from": "తెలుగు"}
+{"input": "Hindi", "entity": "language", "extracted": "Hindi", "normalized_from": "hindi"}
+{"input": "Sanskrit", "entity": "language", "extracted": "Sanskrit", "normalized_from": "sanskrit"}
+{"input": "Tamil", "entity": "language", "extracted": "Tamil", "normalized_from": "tamil"}
+{"input": "Kannada", "entity": "language", "extracted": "Kannada", "normalized_from": "kannada"}
+{"input": "next Sunday", "entity": "date", "extracted": "Next Sunday", "normalized_from": "next sunday"}
+{"input": "tomorrow", "entity": "date", "extracted": "Tomorrow", "normalized_from": "tomorrow"}
+{"input": "రేపు", "entity": "date", "extracted": "Tomorrow", "normalized_from": "రేపు"}
+{"input": "next week", "entity": "date", "extracted": "Next Week", "normalized_from": "next week"}
+{"input": "వచ్చే వారం", "entity": "date", "extracted": "Next Week", "normalized_from": "వచ్చే వారం"}
+{"input": "next month", "entity": "date", "extracted": "Next Month", "normalized_from": "next month"}
+{"input": "15/09/2026", "entity": "date", "extracted": "15/09/2026", "normalized_from": "15/09/2026"}
+{"input": "September 15", "entity": "date", "extracted": "September 15", "normalized_from": "September 15"}
+{"input": "5k", "entity": "budget", "extracted": "₹5,000", "normalized_from": "5k"}
+{"input": "10k", "entity": "budget", "extracted": "₹10,000", "normalized_from": "10k"}
+{"input": "50k", "entity": "budget", "extracted": "₹50,000", "normalized_from": "50k"}
+{"input": "1 lakh", "entity": "budget", "extracted": "₹1,00,000", "normalized_from": "1 lakh"}
+{"input": "under 5000", "entity": "budget", "extracted": "₹5,000", "normalized_from": "under 5000"}
+{"input": "₹15000", "entity": "budget", "extracted": "₹15,000", "normalized_from": "₹15000"}
+{"input": "500 guests", "entity": "guest_count", "extracted": 500, "normalized_from": "500 guests"}
+{"input": "200 ppl", "entity": "guest_count", "extracted": 200, "normalized_from": "200 ppl"}
+{"input": "100 members", "entity": "guest_count", "extracted": 100, "normalized_from": "100 members"}
+{"input": "300 మంది", "entity": "guest_count", "extracted": 300, "normalized_from": "300 మంది"}
+{"input": "priest", "entity": "service_type", "extracted": "priest", "normalized_from": "priest"}
+{"input": "pandit", "entity": "service_type", "extracted": "priest", "normalized_from": "pandit"}
+{"input": "purohit", "entity": "service_type", "extracted": "priest", "normalized_from": "purohit"}
+{"input": "shastri", "entity": "service_type", "extracted": "priest", "normalized_from": "shastri"}
+{"input": "పంతులు", "entity": "service_type", "extracted": "priest", "normalized_from": "పంతులు"}
+{"input": "శాస్త్రి", "entity": "service_type", "extracted": "priest", "normalized_from": "శాస్త్రి"}

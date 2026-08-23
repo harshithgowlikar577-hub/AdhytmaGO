@@ -1,0 +1,163 @@
+.services-page {
+  padding-bottom: var(--space-24); /* Space for mobile nav */
+}
+
+.services-header-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-8) 0 var(--space-6);
+}
+
+.services-title-area {
+  flex: 1;
+}
+
+.page-title {
+  margin-bottom: var(--space-2);
+}
+
+.page-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.location-wrapper {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.tabs-wrapper {
+  margin-bottom: var(--space-8);
+  position: sticky;
+  top: var(--header-height);
+  background: var(--color-ivory);
+  padding: var(--space-4) 0;
+  z-index: calc(var(--z-sticky) - 1);
+}
+
+.services-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--map-width);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.layout-sidebar {
+  /* sticky behavior handled by FilterPanel component */
+}
+
+.layout-content {
+  min-width: 0; /* Prevent grid blowout */
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+}
+
+.results-title {
+  margin-bottom: var(--space-2);
+}
+
+.results-subtitle {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.results-count {
+  font-size: var(--text-xs);
+  color: var(--color-gray-500);
+  font-weight: 500;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-gray-300);
+}
+
+.no-results h3 {
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2);
+}
+
+.no-results p {
+  color: var(--color-gray-500);
+  font-size: var(--text-sm);
+}
+
+.layout-map {
+  height: calc(100vh - var(--header-height) - 200px);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+
+.sticky-map-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .services-layout {
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+
+  .layout-map {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-layout {
+    display: block; /* Grid removed, switching to mobile view */
+  }
+
+  .layout-sidebar {
+    display: none; /* Handled by modal in mobile */
+  }
+
+  .layout-map {
+    display: block; /* Shown conditionally via JS classes */
+    height: calc(100vh - var(--header-height) - 140px); /* Adjust for mobile nav */
+    position: relative;
+    top: 0;
+    margin-bottom: var(--space-6);
+  }
+
+  .hidden-on-mobile {
+    display: none;
+  }
+
+  .services-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-6) 0 var(--space-4);
+  }
+
+  .location-wrapper {
+    width: 100%;
+  }
+  
+  .tabs-wrapper {
+    top: var(--header-height); /* Needs to account for mobile header */
+  }
+
+  .results-header {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,59 @@
+{"input": "I need a priest", "expected": {"intent": "PRIEST_SEARCH", "entities": {}, "missing_fields": ["ceremony_type", "location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need a Telugu priest", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Telugu"}, "missing_fields": ["ceremony_type", "location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need a priest in Hyderabad", "expected": {"intent": "PRIEST_SEARCH", "entities": {"location": "Hyderabad"}, "missing_fields": ["ceremony_type", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Find me a Telugu priest for Griha Pravesham", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Telugu", "ceremony_type": "Griha Pravesham"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need a Telugu priest for Griha Pravesham in Hyderabad next Sunday", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Telugu", "ceremony_type": "Griha Pravesham", "location": "Hyderabad", "date": "Next Sunday"}, "missing_fields": [], "action": "SEARCH_PRIESTS"}}
+{"input": "Find a pandit for wedding in Gachibowli", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Wedding Ceremony", "location": "Gachibowli"}, "missing_fields": ["date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Book a priest for satyanarayan puja tomorrow in Kondapur", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Satyanarayan Puja", "date": "Tomorrow", "location": "Kondapur"}, "missing_fields": [], "action": "SEARCH_PRIESTS"}}
+{"input": "I want a Sanskrit pandit", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Sanskrit"}, "missing_fields": ["ceremony_type", "location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Purohit for naming ceremony in Jubilee Hills next week", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Naming Ceremony", "location": "Jubilee Hills", "date": "Next Week"}, "missing_fields": [], "action": "SEARCH_PRIESTS"}}
+{"input": "Need experienced priest for upanayanam", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Upanayanam", "preferences": ["experienced"]}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Shastri garu kavali Kukatpally lo", "expected": {"intent": "PRIEST_SEARCH", "entities": {"location": "Kukatpally"}, "missing_fields": ["ceremony_type", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Pandit ji chahiye griha pravesh ke liye", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need someone to perform puja at my new house", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Find priest under 5k budget", "expected": {"intent": "PRIEST_SEARCH", "entities": {"budget": "₹5,000"}, "missing_fields": ["ceremony_type", "location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Can you find a Kannada speaking priest in Madhapur?", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Kannada", "location": "Madhapur"}, "missing_fields": ["ceremony_type", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Bro hyd lo priest kavali for griha pravesham", "expected": {"intent": "PRIEST_SEARCH", "entities": {"location": "Hyderabad", "ceremony_type": "Griha Pravesham"}, "missing_fields": ["date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need a hall", "expected": {"intent": "HALL_SEARCH", "entities": {}, "missing_fields": ["location", "date", "guest_count"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I need a hall for 500 people", "expected": {"intent": "HALL_SEARCH", "entities": {"guest_count": 500}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Find a function hall in Hyderabad for 300 guests", "expected": {"intent": "HALL_SEARCH", "entities": {"location": "Hyderabad", "guest_count": 300}, "missing_fields": ["date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Marriage hall for 500 ppl under 1 lakh in Gachibowli next Sunday", "expected": {"intent": "HALL_SEARCH", "entities": {"guest_count": 500, "budget": "₹1,00,000", "location": "Gachibowli", "date": "Next Sunday"}, "missing_fields": [], "action": "SEARCH_HALLS"}}
+{"input": "Need a venue for 200 people with parking and catering", "expected": {"intent": "HALL_SEARCH", "entities": {"guest_count": 200, "parking": true, "catering": true}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Convention center in Kukatpally for wedding", "expected": {"intent": "HALL_SEARCH", "entities": {"location": "Kukatpally"}, "missing_fields": ["date", "guest_count"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Kalyana mandapam kavali Hyderabad lo", "expected": {"intent": "HALL_SEARCH", "entities": {"location": "Hyderabad"}, "missing_fields": ["date", "guest_count"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Big hall for 1000 guests with AC and generator", "expected": {"intent": "HALL_SEARCH", "entities": {"guest_count": 1000}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Show me temples in Hyderabad", "expected": {"intent": "TEMPLE_SEARCH", "entities": {"location": "Hyderabad"}, "missing_fields": [], "action": "SEARCH_TEMPLES"}}
+{"input": "Any Shiva temple nearby?", "expected": {"intent": "TEMPLE_SEARCH", "entities": {"deity": "Shiva"}, "missing_fields": ["location"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Temples in Gachibowli", "expected": {"intent": "TEMPLE_SEARCH", "entities": {"location": "Gachibowli"}, "missing_fields": [], "action": "SEARCH_TEMPLES"}}
+{"input": "Find temples near me", "expected": {"intent": "NEARBY_TEMPLE", "entities": {}, "missing_fields": ["location"], "action": "REQUEST_LOCATION_PERMISSION"}}
+{"input": "Temples near me", "expected": {"intent": "NEARBY_TEMPLE", "entities": {}, "missing_fields": ["location"], "action": "REQUEST_LOCATION_PERMISSION"}}
+{"input": "Nearest temple from here", "expected": {"intent": "NEARBY_TEMPLE", "entities": {}, "missing_fields": ["location"], "action": "REQUEST_LOCATION_PERMISSION"}}
+{"input": "Temple within 5 km", "expected": {"intent": "NEARBY_TEMPLE", "entities": {"radius": 5}, "missing_fields": ["location"], "action": "REQUEST_LOCATION_PERMISSION"}}
+{"input": "I want to book a pooja in a temple", "expected": {"intent": "TEMPLE_POOJA", "entities": {}, "missing_fields": ["temple", "pooja", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Abhishekam at Shiva temple tomorrow", "expected": {"intent": "TEMPLE_POOJA", "entities": {"pooja": "Abhishekam", "deity": "Shiva", "date": "Tomorrow"}, "missing_fields": ["temple"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I want to do archana at the Gachibowli temple next Sunday", "expected": {"intent": "TEMPLE_POOJA", "entities": {"pooja": "Archana", "location": "Gachibowli", "date": "Next Sunday"}, "missing_fields": ["temple"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I want to plan a ceremony", "expected": {"intent": "CEREMONY_PLANNING", "entities": {}, "missing_fields": ["event_purpose", "location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Help me organize a housewarming next month in Hyderabad", "expected": {"intent": "CEREMONY_PLANNING", "entities": {"event_purpose": "Housewarming", "ceremony_type": "Griha Pravesham", "location": "Hyderabad", "date": "Next Month"}, "missing_fields": [], "action": "SHOW_RESULTS"}}
+{"input": "I bought a new flat and want to do something traditional", "expected": {"intent": "CEREMONY_PLANNING", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "I am shifting to a new house and want to do pooja", "expected": {"intent": "CEREMONY_PLANNING", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "Plan my son's upanayanam", "expected": {"intent": "CEREMONY_PLANNING", "entities": {"ceremony_type": "Upanayanam"}, "missing_fields": ["location", "date"], "action": "ASK_REQUIRED_FIELD"}}
+{"input": "What is Griha Pravesham?", "expected": {"intent": "RITUAL_GUIDANCE", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": [], "action": "SHOW_CEREMONY_GUIDANCE"}}
+{"input": "Tell me about Satyanarayan Puja", "expected": {"intent": "RITUAL_GUIDANCE", "entities": {"ceremony_type": "Satyanarayan Puja"}, "missing_fields": [], "action": "SHOW_CEREMONY_GUIDANCE"}}
+{"input": "What is the significance of Upanayanam?", "expected": {"intent": "RITUAL_GUIDANCE", "entities": {"ceremony_type": "Upanayanam"}, "missing_fields": [], "action": "SHOW_CEREMONY_GUIDANCE"}}
+{"input": "Explain vastu puja", "expected": {"intent": "RITUAL_GUIDANCE", "entities": {"ceremony_type": "Vastu Puja"}, "missing_fields": [], "action": "SHOW_CEREMONY_GUIDANCE"}}
+{"input": "Checklist for housewarming", "expected": {"intent": "CHECKLIST", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": [], "action": "SHOW_CHECKLIST"}}
+{"input": "What materials do I need for Griha Pravesham?", "expected": {"intent": "CHECKLIST", "entities": {"ceremony_type": "Griha Pravesham"}, "missing_fields": [], "action": "SHOW_CHECKLIST"}}
+{"input": "Puja samagri list for satyanarayan vratam", "expected": {"intent": "CHECKLIST", "entities": {"ceremony_type": "Satyanarayan Puja"}, "missing_fields": [], "action": "SHOW_CHECKLIST"}}
+{"input": "What can you help me with?", "expected": {"intent": "GENERAL_APPLICATION_HELP", "entities": {}, "missing_fields": [], "action": "NO_ACTION"}}
+{"input": "How does AdhyatmaGO work?", "expected": {"intent": "GENERAL_APPLICATION_HELP", "entities": {}, "missing_fields": [], "action": "NO_ACTION"}}
+{"input": "Help", "expected": {"intent": "GENERAL_APPLICATION_HELP", "entities": {}, "missing_fields": [], "action": "NO_ACTION"}}
+{"input": "What is Java?", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Tell me a joke", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Write my college assignment", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Bitcoin price today", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Who won the cricket match?", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "What is Python programming?", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Can you write code for me?", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Weather in London", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Best restaurants in Hyderabad", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}
+{"input": "Stock market tips", "expected": {"intent": "OUT_OF_SCOPE", "entities": {}, "missing_fields": [], "action": "REDIRECT"}}

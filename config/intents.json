@@ -1,0 +1,167 @@
+{
+  "intents": [
+    {
+      "intent_id": "CEREMONY_PLANNING",
+      "description": "Plan and organize a religious or cultural ceremony end-to-end",
+      "keywords": ["ceremony", "plan", "organize", "arrange", "function", "event", "celebration", "pooja planning"],
+      "aliases": ["plan ceremony", "organize event", "plan my function", "ceremony planning", "plan a pooja"],
+      "example_queries": [
+        "I want to plan a ceremony",
+        "Help me organize a housewarming",
+        "I bought a new house and want to do something traditional",
+        "I am shifting to a new home next month",
+        "I need help planning a religious event",
+        "నాకు వేడుక ప్రణాళిక కావాలి"
+      ],
+      "required_fields": ["event_purpose", "location", "date"],
+      "optional_fields": ["language", "budget", "guest_count", "tradition", "venue_requirement", "priest_preference"],
+      "next_actions": ["SEARCH_PRIESTS", "SEARCH_HALLS", "SHOW_CHECKLIST"]
+    },
+    {
+      "intent_id": "PRIEST_SEARCH",
+      "description": "Find and book a suitable priest or Vedic pandit for a ceremony",
+      "keywords": ["priest", "pandit", "purohit", "purohith", "swami", "acharya", "shastri", "guruji", "panditji"],
+      "aliases": ["priest booking", "find priest", "need priest", "book priest", "book pandit", "pandit kavali"],
+      "example_queries": [
+        "I need a priest",
+        "Find me a Telugu priest for Griha Pravesham",
+        "I need a pandit in Hyderabad",
+        "Telugu purohit kavali Kukatpally lo",
+        "Naaku priest kavali",
+        "పంతులు కావాలి",
+        "శాస్త్రి గారు కావాలి"
+      ],
+      "required_fields": ["ceremony_type", "location", "date"],
+      "optional_fields": ["language", "budget", "time", "preferences"],
+      "next_actions": ["SEARCH_PRIESTS", "VIEW_ENTITY", "CHECK_AVAILABILITY", "START_BOOKING"]
+    },
+    {
+      "intent_id": "TEMPLE_SEARCH",
+      "description": "Find temples in a specific area",
+      "keywords": ["temple", "mandir", "gudi", "devasthanam", "kovil"],
+      "aliases": ["find temple", "show temples", "temple near me", "temples in area", "gudi chupinchandi"],
+      "example_queries": [
+        "Show me temples in Hyderabad",
+        "Any Shiva temple nearby?",
+        "గుడులు చూపించండి",
+        "Temples in Gachibowli",
+        "I want to visit a temple"
+      ],
+      "required_fields": ["location"],
+      "optional_fields": ["deity", "service", "date"],
+      "next_actions": ["SEARCH_TEMPLES", "VIEW_ENTITY"]
+    },
+    {
+      "intent_id": "TEMPLE_POOJA",
+      "description": "Book a pooja or seva at a temple",
+      "keywords": ["pooja", "puja", "seva", "archana", "abhishekam", "homam", "havan"],
+      "aliases": ["book pooja", "temple pooja", "do archana", "perform abhishekam", "pooja booking"],
+      "example_queries": [
+        "I want to book a pooja in a temple",
+        "Can I perform an archana?",
+        "I need a temple seva next Sunday",
+        "గుడిలో పూజ చేయించాలి",
+        "Abhishekam book cheyali"
+      ],
+      "required_fields": ["temple", "pooja", "date"],
+      "optional_fields": ["time", "preferences"],
+      "next_actions": ["SEARCH_TEMPLE_POOJA", "CHECK_AVAILABILITY", "START_BOOKING"]
+    },
+    {
+      "intent_id": "HALL_SEARCH",
+      "description": "Find a function hall, marriage hall, or convention center",
+      "keywords": ["hall", "function hall", "marriage hall", "kalyana mandapam", "convention", "venue", "mandapam", "banquet"],
+      "aliases": ["find hall", "book hall", "need venue", "marriage hall kavali", "function hall booking"],
+      "example_queries": [
+        "I need a marriage hall",
+        "Find a hall for 500 people",
+        "I need a function hall under 1 lakh in Hyderabad",
+        "కల్యాణ మండపం కావాలి",
+        "Hall for wedding in Gachibowli",
+        "500 people ki hall kavali"
+      ],
+      "required_fields": ["location", "date", "guest_count"],
+      "optional_fields": ["budget", "parking", "catering", "facilities"],
+      "next_actions": ["SEARCH_HALLS", "VIEW_ENTITY", "CHECK_AVAILABILITY", "START_BOOKING"]
+    },
+    {
+      "intent_id": "RITUAL_GUIDANCE",
+      "description": "Explain a ritual, ceremony, or religious practice",
+      "keywords": ["what is", "meaning", "explain", "tell me about", "significance", "importance", "procedure"],
+      "aliases": ["explain ceremony", "what is griha pravesham", "ceremony meaning", "ritual details"],
+      "example_queries": [
+        "What is Griha Pravesham?",
+        "Tell me about Satyanarayan Puja",
+        "What is the significance of Upanayanam?",
+        "గృహ ప్రవేశం అంటే ఏంటి?",
+        "Explain the housewarming ceremony"
+      ],
+      "required_fields": ["ceremony_type"],
+      "optional_fields": [],
+      "next_actions": ["SHOW_CEREMONY_GUIDANCE"]
+    },
+    {
+      "intent_id": "CHECKLIST",
+      "description": "Generate a preparation checklist or materials list for a ceremony",
+      "keywords": ["checklist", "materials", "samagri", "items", "preparation", "what to buy", "shopping list"],
+      "aliases": ["puja samagri", "ceremony preparation", "what do I need", "items list", "preparation checklist"],
+      "example_queries": [
+        "What materials do I need for Griha Pravesham?",
+        "Checklist for housewarming",
+        "Puja samagri list",
+        "పూజ సామగ్రి లిస్ట్",
+        "What should I prepare?"
+      ],
+      "required_fields": ["ceremony_type"],
+      "optional_fields": [],
+      "next_actions": ["SHOW_CHECKLIST"]
+    },
+    {
+      "intent_id": "NEARBY_TEMPLE",
+      "description": "Find temples near the user's current location",
+      "keywords": ["nearby", "near me", "closest", "nearest", "around me", "within km"],
+      "aliases": ["temples near me", "nearest temple", "closest temple", "nearby temples", "gudi ekkada"],
+      "example_queries": [
+        "Temples near me",
+        "Find the nearest temple",
+        "Temple within 5 km",
+        "నా దగ్గరలో గుడులు",
+        "Which temple is closest?"
+      ],
+      "required_fields": ["location"],
+      "optional_fields": ["radius", "deity"],
+      "next_actions": ["REQUEST_LOCATION_PERMISSION", "SEARCH_TEMPLES"]
+    },
+    {
+      "intent_id": "GENERAL_APPLICATION_HELP",
+      "description": "General help about using the AdhyatmaGO application",
+      "keywords": ["help", "how to", "what can you do", "features", "guide"],
+      "aliases": ["help me", "how does this work", "what services", "guide me"],
+      "example_queries": [
+        "What can you help me with?",
+        "How does AdhyatmaGO work?",
+        "What services do you offer?",
+        "Help"
+      ],
+      "required_fields": [],
+      "optional_fields": [],
+      "next_actions": ["NO_ACTION"]
+    },
+    {
+      "intent_id": "OUT_OF_SCOPE",
+      "description": "Questions unrelated to AdhyatmaGO services",
+      "keywords": [],
+      "aliases": [],
+      "example_queries": [
+        "What is Java?",
+        "Tell me a joke",
+        "Write my assignment",
+        "Bitcoin price",
+        "Weather in London"
+      ],
+      "required_fields": [],
+      "optional_fields": [],
+      "next_actions": ["REDIRECT"]
+    }
+  ]
+}

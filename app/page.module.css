@@ -1,0 +1,229 @@
+.home {
+  min-height: 100vh;
+}
+
+.hero {
+  padding: var(--space-20) 0 var(--space-24);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.heroContent h1 {
+  font-size: var(--text-5xl);
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+  color: var(--color-charcoal);
+  letter-spacing: -0.02em;
+}
+
+.heroContent p {
+  font-size: var(--text-xl);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroSearch {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.categoryCard {
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid transparent;
+}
+
+.categoryCard:hover {
+  border-color: var(--color-saffron);
+}
+
+.categoryIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-6);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.categoryCard h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.categoryCard p {
+  margin-bottom: var(--space-6);
+  flex: 1;
+}
+
+.categoryLink {
+  color: var(--color-saffron-dark);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  transition: transform var(--duration-fast);
+}
+
+.categoryCard:hover .categoryLink {
+  transform: translateX(4px);
+}
+
+.stepsGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--space-12);
+  position: relative;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 0 var(--space-4);
+}
+
+.stepNumber {
+  width: 48px;
+  height: 48px;
+  background: var(--color-white);
+  border: 2px solid var(--color-saffron);
+  color: var(--color-saffron-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin: 0 auto var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.step h4 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.step p {
+  font-size: var(--text-sm);
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--color-gray-200);
+  margin-top: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  padding: var(--space-12) 0 var(--space-6);
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-12);
+}
+
+.footerContent .logo-name {
+  color: var(--color-white);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footerLinks a {
+  color: var(--color-gray-300);
+}
+
+.footerLinks a:hover {
+  color: var(--color-saffron);
+}
+
+.footerBottom {
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+}
+
+@media (max-width: 1024px) {
+  .heroContent h1 {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+  
+  .heroContent h1 {
+    font-size: var(--text-3xl);
+  }
+  
+  .stepsGrid {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  
+  .stepLine {
+    display: none;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  
+  .footerLinks {
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+}

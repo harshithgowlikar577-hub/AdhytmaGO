@@ -1,0 +1,147 @@
+{
+  "keywords": [
+    {
+      "canonical_name": "Griha Pravesham",
+      "category": "ceremony",
+      "keywords": ["griha pravesham", "griha pravesh", "grihapravesham", "house warming", "housewarming", "house warming ceremony", "house entry", "new house ceremony", "house pooja"],
+      "Telugu_terms": ["గృహ ప్రవేశం", "గృహప్రవేశం", "ఇంట్లో ప్రవేశం"],
+      "mixed_terms": ["griha pravesham kavali", "new house pooja", "intiki velladaniki pooja", "new house function"],
+      "spelling_variants": ["griha pravesam", "gruha pravesham", "griha pravasham", "graha pravesham"],
+      "colloquial_variants": ["new house ceremony", "new flat pooja", "shifting ceremony", "moving in ceremony"],
+      "abbreviations": [],
+      "example_sentences": ["I want to do griha pravesham", "నాకు గృహప్రవేశం చేయాలి", "Housewarming next Sunday", "We are moving into a new house"]
+    },
+    {
+      "canonical_name": "Wedding Ceremony",
+      "category": "ceremony",
+      "keywords": ["wedding", "marriage", "vivaha", "kalyanam", "pelli"],
+      "Telugu_terms": ["వివాహం", "పెళ్లి", "కల్యాణం"],
+      "mixed_terms": ["wedding planning help", "marriage function", "pelli function", "kalyanam arrange cheyali"],
+      "spelling_variants": ["weding", "marraige", "marriege", "vivaaham"],
+      "colloquial_variants": ["shaadi", "shadi", "wedding function"],
+      "abbreviations": [],
+      "example_sentences": ["I want to plan my wedding", "పెళ్లి ప్లాన్ చేయాలి", "Marriage next month"]
+    },
+    {
+      "canonical_name": "Naming Ceremony",
+      "category": "ceremony",
+      "keywords": ["naming ceremony", "namakaranam", "cradle ceremony", "baby naming"],
+      "Telugu_terms": ["నామకరణం", "పేరు పెట్టడం"],
+      "mixed_terms": ["baby ki naming ceremony", "namakaranam function"],
+      "spelling_variants": ["namakaranam", "namakaranamu", "namkaran"],
+      "colloquial_variants": ["baby naming event", "name keeping ceremony"],
+      "abbreviations": [],
+      "example_sentences": ["I want to do namakaranam for my baby", "నామకరణం చేయాలి"]
+    },
+    {
+      "canonical_name": "Satyanarayan Puja",
+      "category": "ceremony",
+      "keywords": ["satyanarayan", "satyanarayana", "satyanarayana vratam", "satyanarayan puja"],
+      "Telugu_terms": ["సత్యనారాయణ వ్రతం", "సత్యనారాయణ పూజ"],
+      "mixed_terms": ["satyanarayan vratham cheyali", "satyanarayana puja plan"],
+      "spelling_variants": ["satyanarayana", "satya narayan", "sathyanarayana"],
+      "colloquial_variants": ["satyanarayan katha", "satyam puja"],
+      "abbreviations": [],
+      "example_sentences": ["I want to perform Satyanarayan Puja", "సత్యనారాయణ వ్రతం చేయాలనుకుంటున్నాం"]
+    },
+    {
+      "canonical_name": "Upanayanam",
+      "category": "ceremony",
+      "keywords": ["upanayanam", "thread ceremony", "janeu", "sacred thread"],
+      "Telugu_terms": ["ఉపనయనం", "ముంజి"],
+      "mixed_terms": ["upanayanam function", "thread ceremony plan"],
+      "spelling_variants": ["upanyanam", "upanayanamu"],
+      "colloquial_variants": ["thread ceremony", "janeu ceremony"],
+      "abbreviations": [],
+      "example_sentences": ["I want to plan upanayanam for my son", "ఉపనయనం చేయాలి"]
+    },
+    {
+      "canonical_name": "Priest",
+      "category": "service_provider",
+      "keywords": ["priest", "pandit", "purohit", "panditji", "shastri", "swami", "acharya", "guruji"],
+      "Telugu_terms": ["పంతులు", "శాస్త్రి", "పురోహితులు", "స్వామి"],
+      "mixed_terms": ["pandit kavali", "priest book cheyali", "purohit garu kavali"],
+      "spelling_variants": ["preist", "pandiit", "purohith"],
+      "colloquial_variants": ["pujari", "baba", "pundit"],
+      "abbreviations": [],
+      "example_sentences": ["I need a priest", "పంతులు కావాలి", "Find me a pandit"]
+    },
+    {
+      "canonical_name": "Temple",
+      "category": "place",
+      "keywords": ["temple", "mandir", "gudi", "devasthanam", "kovil", "kshetram"],
+      "Telugu_terms": ["గుడి", "దేవాలయం", "ఆలయం", "క్షేత్రం"],
+      "mixed_terms": ["temple chupinchandi", "gudi ekkada", "nearby temple kavali"],
+      "spelling_variants": ["tempel", "tempal"],
+      "colloquial_variants": ["church", "worship place"],
+      "abbreviations": [],
+      "example_sentences": ["Show me temples nearby", "గుడి ఎక్కడ ఉంది?", "Temples in Gachibowli"]
+    },
+    {
+      "canonical_name": "Function Hall",
+      "category": "venue",
+      "keywords": ["function hall", "hall", "marriage hall", "kalyana mandapam", "convention", "venue", "mandapam", "banquet hall"],
+      "Telugu_terms": ["కల్యాణ మండపం", "ఫంక్షన్ హాల్", "మండపం"],
+      "mixed_terms": ["hall kavali", "marriage hall book cheyali", "function hall search"],
+      "spelling_variants": ["functon hall", "function hal", "mariage hall"],
+      "colloquial_variants": ["party hall", "celebration hall", "event hall", "wedding venue"],
+      "abbreviations": [],
+      "example_sentences": ["I need a marriage hall", "కల్యాణ మండపం కావాలి", "Hall for 500 people"]
+    },
+    {
+      "canonical_name": "Pooja",
+      "category": "service",
+      "keywords": ["pooja", "puja", "prayer", "worship", "seva", "archana", "abhishekam", "homam", "havan"],
+      "Telugu_terms": ["పూజ", "సేవ", "అర్చన", "అభిషేకం", "హోమం"],
+      "mixed_terms": ["pooja cheyinchali", "puja book", "archana cheyali"],
+      "spelling_variants": ["pooja", "puja", "poojaa"],
+      "colloquial_variants": ["prayer service", "worship", "ritual"],
+      "abbreviations": [],
+      "example_sentences": ["I want to do pooja", "పూజ చేయించాలి", "Book a pooja"]
+    },
+    {
+      "canonical_name": "Hyderabad",
+      "category": "location",
+      "keywords": ["hyderabad", "hyd", "secunderabad", "telangana"],
+      "Telugu_terms": ["హైదరాబాద్", "సికింద్రాబాద్"],
+      "mixed_terms": ["hyd lo", "hyderabad lo"],
+      "spelling_variants": ["hydrabad", "hyderabad", "hiderabad"],
+      "colloquial_variants": ["hyd", "cyberabad"],
+      "abbreviations": ["hyd"],
+      "example_sentences": ["In Hyderabad", "హైదరాబాద్ లో", "Hyd lo"]
+    },
+    {
+      "canonical_name": "Budget",
+      "category": "entity",
+      "keywords": ["budget", "price", "cost", "amount", "rate", "charges", "fee", "dakshina"],
+      "Telugu_terms": ["బడ్జెట్", "ఖర్చు", "దక్షిణ"],
+      "mixed_terms": ["under 5000", "5k lo", "1 lakh budget"],
+      "spelling_variants": [],
+      "colloquial_variants": ["how much", "pricing", "affordable"],
+      "abbreviations": ["5k", "10k", "50k", "1L"],
+      "example_sentences": ["Under 10000", "5k lo priest kavali", "Budget is 1 lakh"]
+    },
+    {
+      "canonical_name": "Date",
+      "category": "entity",
+      "keywords": ["date", "day", "when", "schedule", "timing"],
+      "Telugu_terms": ["తేదీ", "రోజు", "ఎప్పుడు"],
+      "mixed_terms": ["next sunday", "tomorrow", "epudu"],
+      "spelling_variants": [],
+      "colloquial_variants": ["this weekend", "coming sunday", "next month", "ache sunday"],
+      "abbreviations": [],
+      "example_sentences": ["Next Sunday", "Tomorrow", "రేపు", "వచ్చే ఆదివారం"]
+    },
+    {
+      "canonical_name": "Guest Count",
+      "category": "entity",
+      "keywords": ["guests", "people", "members", "persons", "capacity", "attendees"],
+      "Telugu_terms": ["మంది", "అతిథులు"],
+      "mixed_terms": ["500 mandi", "200 people", "100 guests"],
+      "spelling_variants": [],
+      "colloquial_variants": ["ppl", "heads"],
+      "abbreviations": ["ppl"],
+      "example_sentences": ["500 guests", "200 ppl", "100 మంది"]
+    }
+  ]
+}

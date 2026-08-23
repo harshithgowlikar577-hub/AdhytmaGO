@@ -1,0 +1,110 @@
+.category-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.category-tabs {
+  display: flex;
+  gap: var(--space-2);
+  background: var(--color-white);
+  padding: var(--space-1);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-100);
+}
+
+.category-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  white-space: nowrap;
+}
+
+.category-tab:hover {
+  color: var(--color-charcoal);
+  background: var(--color-gray-50);
+}
+
+.category-tab-active {
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-saffron), var(--color-saffron-dark));
+  box-shadow: 0 2px 12px rgba(212, 168, 67, 0.3);
+}
+
+.category-tab-active:hover {
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-saffron-light), var(--color-saffron));
+}
+
+.tab-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.tab-label {
+  line-height: 1;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-full);
+}
+
+.radius-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.radius-label {
+  font-size: var(--text-sm);
+  color: var(--color-gray-500);
+  white-space: nowrap;
+}
+
+.radius-select {
+  min-width: 80px;
+}
+
+@media (max-width: 768px) {
+  .category-tabs-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .category-tab {
+    flex: 1;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .tab-label {
+    font-size: var(--text-xs);
+  }
+
+  .radius-selector {
+    justify-content: center;
+  }
+}

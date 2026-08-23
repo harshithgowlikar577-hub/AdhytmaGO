@@ -1,0 +1,142 @@
+{
+  "entities": {
+    "event_purpose": {
+      "description": "The reason or occasion for the ceremony",
+      "type": "string",
+      "examples": ["Housewarming", "Wedding", "Baby naming", "Religious observance", "Vastu purification"],
+      "normalization_rules": ["Map common phrases to canonical ceremony names", "Accept Telugu and English equivalents"],
+      "validation_rules": ["Must map to a known ceremony category or be a free-text description"]
+    },
+    "ceremony_type": {
+      "description": "The specific type of ceremony to be performed",
+      "type": "enum",
+      "examples": ["Griha Pravesham", "Wedding Ceremony", "Naming Ceremony", "Satyanarayan Puja", "Upanayanam", "Vastu Puja", "Ganesh Puja"],
+      "normalization_rules": [
+        "griha pravesh → Griha Pravesham",
+        "housewarming → Griha Pravesham",
+        "house warming → Griha Pravesham",
+        "marriage → Wedding Ceremony",
+        "kalyanam → Wedding Ceremony",
+        "namakaranam → Naming Ceremony",
+        "thread ceremony → Upanayanam"
+      ],
+      "validation_rules": ["Must match a supported ceremony type or be flagged as ambiguous"]
+    },
+    "service_type": {
+      "description": "The type of service requested",
+      "type": "enum",
+      "examples": ["priest", "temple_pooja", "venue", "ceremony_planning"],
+      "normalization_rules": ["pandit/purohit/shastri → priest", "hall/mandapam/venue → venue"],
+      "validation_rules": ["Must be one of: priest, temple_pooja, venue, ceremony_planning"]
+    },
+    "tradition": {
+      "description": "The religious or cultural tradition",
+      "type": "string",
+      "examples": ["Hindu", "Vedic", "South Indian", "North Indian"],
+      "normalization_rules": [],
+      "validation_rules": []
+    },
+    "region": {
+      "description": "Geographic/cultural region",
+      "type": "string",
+      "examples": ["Telangana", "Andhra Pradesh", "Karnataka"],
+      "normalization_rules": [],
+      "validation_rules": []
+    },
+    "location": {
+      "description": "City, area, or neighborhood for the service",
+      "type": "string",
+      "examples": ["Hyderabad", "Gachibowli", "Kondapur", "Kukatpally", "Secunderabad", "Madhapur"],
+      "normalization_rules": [
+        "hyd → Hyderabad",
+        "sec-bad → Secunderabad",
+        "kphb → KPHB Colony",
+        "hitech city → Hitech City"
+      ],
+      "validation_rules": ["Should be a recognized area in Hyderabad/Telangana or a valid city name"]
+    },
+    "language": {
+      "description": "Preferred language for the service or priest",
+      "type": "enum",
+      "examples": ["Telugu", "Hindi", "Tamil", "Kannada", "Sanskrit", "English", "Marathi", "Malayalam"],
+      "normalization_rules": [
+        "తెలుగు → Telugu",
+        "హిందీ → Hindi",
+        "తమిళం → Tamil"
+      ],
+      "validation_rules": ["Must be a recognized language"]
+    },
+    "date": {
+      "description": "Date or approximate time for the ceremony",
+      "type": "date_expression",
+      "examples": ["Next Sunday", "Tomorrow", "15/09/2026", "September 15", "Next month", "This weekend"],
+      "normalization_rules": [
+        "రేపు → Tomorrow",
+        "వచ్చే వారం → Next Week",
+        "ఆదివారం → Next Sunday",
+        "ache sunday → Next Sunday"
+      ],
+      "validation_rules": ["Must be a parseable date expression, cannot be in the past"]
+    },
+    "time": {
+      "description": "Preferred time for the ceremony",
+      "type": "time_expression",
+      "examples": ["Morning", "9 AM", "Afternoon", "Evening", "6:00 PM"],
+      "normalization_rules": ["ఉదయం → Morning", "సాయంత్రం → Evening"],
+      "validation_rules": []
+    },
+    "budget": {
+      "description": "Budget range for the service",
+      "type": "currency",
+      "examples": ["5000", "₹5000", "5k", "under 10000", "around 50k", "1 lakh", "₹1,00,000"],
+      "normalization_rules": [
+        "5k → ₹5,000",
+        "10k → ₹10,000",
+        "50k → ₹50,000",
+        "1 lakh → ₹1,00,000",
+        "1L → ₹1,00,000"
+      ],
+      "currency": "INR",
+      "validation_rules": ["Must be a positive number or range"]
+    },
+    "guest_count": {
+      "description": "Number of expected guests or attendees",
+      "type": "integer",
+      "examples": [50, 100, 200, 500, 1000],
+      "normalization_rules": [
+        "500 ppl → 500",
+        "200 members → 200",
+        "100 మంది → 100"
+      ],
+      "validation_rules": ["Must be a positive integer"]
+    },
+    "parking": {
+      "description": "Whether parking facility is required",
+      "type": "boolean",
+      "examples": [true, false],
+      "normalization_rules": ["with parking → true", "parking needed → true"],
+      "validation_rules": []
+    },
+    "catering": {
+      "description": "Whether catering is required",
+      "type": "boolean",
+      "examples": [true, false],
+      "normalization_rules": ["with food → true", "catering needed → true"],
+      "validation_rules": []
+    },
+    "facilities": {
+      "description": "Required venue facilities",
+      "type": "array",
+      "examples": [["AC", "Parking", "Catering"], ["Generator", "Kitchen"]],
+      "normalization_rules": [],
+      "validation_rules": ["Each item should be from the supported facility list"]
+    },
+    "preferences": {
+      "description": "Additional user preferences",
+      "type": "array",
+      "examples": [["experienced", "senior"], ["affordable"], ["well-known"]],
+      "normalization_rules": [],
+      "validation_rules": []
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{"scenario": "missing_field_not_answered", "context": {"intent": "PRIEST_SEARCH", "asked": "date", "known": {"ceremony_type": "Griha Pravesham", "location": "Hyderabad"}}, "input": "I want a Telugu priest", "expected": {"action": "ASK_REQUIRED_FIELD", "stored": {"language": "Telugu"}, "still_missing": ["date"], "response_contains": "noted", "response_asks": "date"}}
+{"scenario": "missing_field_not_answered", "context": {"intent": "PRIEST_SEARCH", "asked": "location", "known": {"ceremony_type": "Griha Pravesham"}}, "input": "I prefer an experienced pandit", "expected": {"action": "ASK_REQUIRED_FIELD", "stored": {"preferences": ["experienced"]}, "still_missing": ["location", "date"], "response_contains": "noted", "response_asks": "location"}}
+{"scenario": "missing_field_not_answered", "context": {"intent": "HALL_SEARCH", "asked": "guest_count", "known": {"location": "Gachibowli", "date": "Next Sunday"}}, "input": "I need parking and catering", "expected": {"action": "ASK_REQUIRED_FIELD", "stored": {"parking": true, "catering": true}, "still_missing": ["guest_count"], "response_asks": "guest_count"}}
+{"scenario": "related_side_question", "context": {"intent": "PRIEST_SEARCH", "asked": "date", "known": {"ceremony_type": "Griha Pravesham", "location": "Hyderabad"}}, "input": "What is Griha Pravesham?", "expected": {"action": "ASK_REQUIRED_FIELD", "response_contains": "house-entry ceremony", "response_asks": "date"}}
+{"scenario": "related_side_question", "context": {"intent": "PRIEST_SEARCH", "asked": "ceremony_type"}, "input": "What ceremonies can you help with?", "expected": {"action": "ASK_REQUIRED_FIELD", "response_contains": "Griha Pravesham", "response_asks": "ceremony"}}
+{"scenario": "related_side_question", "context": {"intent": "HALL_SEARCH", "asked": "date", "known": {"location": "Hyderabad", "guest_count": 500}}, "input": "What facilities do your halls have?", "expected": {"action": "ASK_REQUIRED_FIELD", "response_contains": "parking", "response_asks": "date"}}
+{"scenario": "unrelated_question", "context": {"intent": "PRIEST_SEARCH", "asked": "location"}, "input": "What is Java?", "expected": {"action": "REDIRECT", "response_contains": "ceremony planning"}}
+{"scenario": "unrelated_question", "context": {"intent": "HALL_SEARCH", "asked": "guest_count"}, "input": "Tell me a joke", "expected": {"action": "REDIRECT", "response_contains": "ceremony planning"}}
+{"scenario": "unrelated_question", "context": {"intent": "PRIEST_SEARCH", "asked": "date"}, "input": "How to cook biryani?", "expected": {"action": "REDIRECT", "response_contains": "AdhyatmaGO"}}
+{"scenario": "explicit_intent_change", "context": {"intent": "PRIEST_SEARCH", "known": {"ceremony_type": "Griha Pravesham", "location": "Hyderabad", "date": "Next Sunday"}}, "input": "Forget the priest. I need a function hall instead.", "expected": {"action": "ASK_REQUIRED_FIELD", "new_intent": "HALL_SEARCH", "reset_incompatible": true}}
+{"scenario": "explicit_intent_change", "context": {"intent": "HALL_SEARCH", "known": {"location": "Gachibowli", "guest_count": 500}}, "input": "Actually I want a priest instead", "expected": {"action": "ASK_REQUIRED_FIELD", "new_intent": "PRIEST_SEARCH"}}
+{"scenario": "explicit_intent_change", "context": {"intent": "PRIEST_SEARCH"}, "input": "Never mind the priest. Show me temples nearby", "expected": {"action": "REQUEST_LOCATION_PERMISSION", "new_intent": "NEARBY_TEMPLE"}}
+{"scenario": "multi_field_single_message", "input": "I need a Telugu priest for Griha Pravesham in Gachibowli next Sunday under 10k budget", "expected": {"intent": "PRIEST_SEARCH", "entities": {"language": "Telugu", "ceremony_type": "Griha Pravesham", "location": "Gachibowli", "date": "Next Sunday", "budget": "₹10,000"}, "missing_fields": [], "action": "SEARCH_PRIESTS"}}
+{"scenario": "multi_field_single_message", "input": "Marriage hall in Banjara Hills for 800 guests on September 15 with AC and parking", "expected": {"intent": "HALL_SEARCH", "entities": {"location": "Banjara Hills", "guest_count": 800, "date": "September 15"}, "missing_fields": [], "action": "SEARCH_HALLS"}}
+{"scenario": "incomplete_request", "input": "I want to do something", "expected": {"intent": "CEREMONY_PLANNING", "action": "ASK_CLARIFICATION", "response_asks": "ceremony"}}
+{"scenario": "incomplete_request", "input": "Help me plan", "expected": {"intent": "CEREMONY_PLANNING", "action": "ASK_REQUIRED_FIELD", "response_asks": "ceremony"}}
+{"scenario": "ambiguous_request", "input": "I need help with my new house", "expected": {"intent": "CEREMONY_PLANNING", "action": "ASK_CLARIFICATION", "response_contains": "housewarming"}}
+{"scenario": "ambiguous_request", "input": "My baby is coming next month", "expected": {"intent": "CEREMONY_PLANNING", "action": "ASK_CLARIFICATION", "response_contains": "naming ceremony"}}
+{"scenario": "spelling_mistakes", "input": "Griha pravesh priist in hydrabad", "expected": {"intent": "PRIEST_SEARCH", "entities": {"ceremony_type": "Griha Pravesham", "location": "Hyderabad"}, "missing_fields": ["date"]}}
+{"scenario": "spelling_mistakes", "input": "Functon hal for 200 pepole", "expected": {"intent": "HALL_SEARCH", "entities": {"guest_count": 200}, "missing_fields": ["location", "date"]}}
+{"scenario": "spelling_mistakes", "input": "Marraige hall in kondapor", "expected": {"intent": "HALL_SEARCH", "entities": {"location": "Kondapur"}, "missing_fields": ["date", "guest_count"]}}
+{"scenario": "date_variations", "input": "Next month end", "expected": {"entities": {"date": "Next Month End"}}}
+{"scenario": "date_variations", "input": "This weekend", "expected": {"entities": {"date": "This Weekend"}}}
+{"scenario": "date_variations", "input": "15/09/2026", "expected": {"entities": {"date": "15/09/2026"}}}
+{"scenario": "date_variations", "input": "September 20th", "expected": {"entities": {"date": "September 20"}}}
+{"scenario": "budget_variations", "input": "Under 5000", "expected": {"entities": {"budget": "₹5,000"}}}
+{"scenario": "budget_variations", "input": "50k budget", "expected": {"entities": {"budget": "₹50,000"}}}
+{"scenario": "budget_variations", "input": "1 lakh se kam", "expected": {"entities": {"budget": "₹1,00,000"}}}
+{"scenario": "budget_variations", "input": "Around 10-15 thousand", "expected": {"entities": {"budget": "₹10,000 - ₹15,000"}}}
+{"scenario": "guest_count_variations", "input": "About 300 guests", "expected": {"entities": {"guest_count": 300}}}
+{"scenario": "guest_count_variations", "input": "500 ppl", "expected": {"entities": {"guest_count": 500}}}
+{"scenario": "guest_count_variations", "input": "200 members", "expected": {"entities": {"guest_count": 200}}}
+{"scenario": "guest_count_variations", "input": "100 మంది", "expected": {"entities": {"guest_count": 100}}}
+{"scenario": "location_variations", "input": "Hyd", "expected": {"entities": {"location": "Hyderabad"}}}
+{"scenario": "location_variations", "input": "Hi-tech city", "expected": {"entities": {"location": "Hitech City"}}}
+{"scenario": "location_variations", "input": "KPHB", "expected": {"entities": {"location": "KPHB Colony"}}}
+{"scenario": "location_variations", "input": "Sec-bad", "expected": {"entities": {"location": "Secunderabad"}}}

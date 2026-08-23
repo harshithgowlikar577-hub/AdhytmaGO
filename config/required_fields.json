@@ -1,0 +1,114 @@
+{
+  "PRIEST_SEARCH": {
+    "required": ["ceremony_type", "location", "date"],
+    "optional": ["language", "budget", "time", "preferences"],
+    "questions": {
+      "ceremony_type": {
+        "en": "Which ceremony do you need the priest for? (e.g., Griha Pravesham, Wedding, Naming Ceremony)",
+        "te": "మీరు ఏ పవిత్ర వేడుకకు పురోహితులను కావాలనుకుంటున్నారు? (ఉదా: గృహప్రవేశం, వివాహం, నామకరణం)"
+      },
+      "location": {
+        "en": "Which city or area should I search in? (e.g., Gachibowli, Kukatpally, Hyderabad)",
+        "te": "ఏ ప్రాంతంలో వెతకాలి? (ఉదా: గచ్చిబౌలి, కూకట్‌పల్లి, హైదరాబాద్)"
+      },
+      "date": {
+        "en": "What date are you planning the ceremony?",
+        "te": "వేడుకను ఏ తేదీన నిర్వహించాలని అనుకుంటున్నారు?"
+      }
+    }
+  },
+  "HALL_SEARCH": {
+    "required": ["location", "date", "guest_count"],
+    "optional": ["budget", "parking", "catering", "facilities"],
+    "questions": {
+      "location": {
+        "en": "Which city or area are you looking for a function hall?",
+        "te": "ఏ ప్రాంతంలో ఫంక్షన్ హాల్ కావాలి?"
+      },
+      "date": {
+        "en": "What date do you need the function hall?",
+        "te": "హాల్ ఏ తేదీన కావాలి?"
+      },
+      "guest_count": {
+        "en": "Approximately how many guests are expected?",
+        "te": "సుమారు ఎంతమంది అతిథులు హాజరవుతారు?"
+      }
+    }
+  },
+  "CEREMONY_PLANNING": {
+    "required": ["event_purpose", "location", "date"],
+    "optional": ["language", "budget", "guest_count", "tradition", "venue_requirement", "priest_preference"],
+    "questions": {
+      "event_purpose": {
+        "en": "What ceremony or occasion are you planning?",
+        "te": "మీరు ఏ వేడుకను ప్లాన్ చేస్తున్నారు?"
+      },
+      "location": {
+        "en": "Where will the ceremony take place? (city or area)",
+        "te": "వేడుక ఎక్కడ నిర్వహించాలి?"
+      },
+      "date": {
+        "en": "What is the approximate date?",
+        "te": "సుమారు ఏ తేదీన?"
+      }
+    }
+  },
+  "TEMPLE_SEARCH": {
+    "required": ["location"],
+    "optional": ["deity", "service", "date"],
+    "questions": {
+      "location": {
+        "en": "Which area are you looking for temples?",
+        "te": "ఏ ప్రాంతంలో గుడులు కావాలి?"
+      }
+    }
+  },
+  "TEMPLE_POOJA": {
+    "required": ["temple", "pooja", "date"],
+    "optional": ["time", "preferences"],
+    "questions": {
+      "temple": {
+        "en": "Which temple would you like to perform the pooja at?",
+        "te": "ఏ గుడిలో పూజ చేయించాలి?"
+      },
+      "pooja": {
+        "en": "What type of pooja or seva?",
+        "te": "ఏ రకమైన పూజ లేదా సేవ?"
+      },
+      "date": {
+        "en": "What date would you like the pooja?",
+        "te": "పూజ ఏ తేదీన?"
+      }
+    }
+  },
+  "NEARBY_TEMPLE": {
+    "required": ["location"],
+    "optional": ["radius", "deity"],
+    "questions": {
+      "location": {
+        "en": "I'll need your location to find nearby temples. Can you share your location or tell me the area?",
+        "te": "దగ్గరలోని గుడులు చూపించడానికి మీ లొకేషన్ కావాలి. మీ ప్రాంతం చెప్పగలరా?"
+      }
+    }
+  },
+  "RITUAL_GUIDANCE": {
+    "required": ["ceremony_type"],
+    "optional": [],
+    "questions": {
+      "ceremony_type": {
+        "en": "Which ceremony or ritual would you like to know about?",
+        "te": "ఏ వేడుక గురించి తెలుసుకోవాలి?"
+      }
+    }
+  },
+  "CHECKLIST": {
+    "required": ["ceremony_type"],
+    "optional": [],
+    "questions": {
+      "ceremony_type": {
+        "en": "Which ceremony should I prepare the checklist for?",
+        "te": "ఏ వేడుక కోసం చెక్‌లిస్ట్ తయారు చేయాలి?"
+      }
+    }
+  }
+}

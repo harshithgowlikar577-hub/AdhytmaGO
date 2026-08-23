@@ -1,0 +1,359 @@
+/* Home Page Extended Components CSS */
+
+/* Hero Extended */
+.home-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-cream);
+  color: var(--color-saffron-dark);
+  border: 1px solid var(--color-saffron-light);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.home-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.hero-quick-ai {
+  margin-top: var(--space-8);
+  width: 100%;
+  max-width: 680px;
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-xl);
+  text-align: left;
+}
+
+.quick-ai-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  padding: 8px 12px;
+  transition: all var(--transition-fast);
+}
+
+.quick-ai-input-row:focus-within {
+  border-color: var(--color-saffron);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+}
+
+.quick-ai-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-base);
+  color: var(--color-gray-800);
+  padding: 4px 8px;
+}
+
+.quick-ai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-3);
+}
+
+.quick-chip {
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.quick-chip:hover {
+  background: var(--color-cream);
+  border-color: var(--color-saffron-light);
+  color: var(--color-saffron-dark);
+}
+
+/* Trust Strip */
+.trust-strip-section {
+  background: white;
+  border-top: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding: var(--space-6) 0;
+}
+
+.trust-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .trust-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.trust-strip-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gray-800);
+}
+
+.trust-strip-icon {
+  font-size: 1.5rem;
+}
+
+/* Service Cards (4 Services) */
+.services-4-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .services-4-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-4-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card-item {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-saffron-light);
+}
+
+.service-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: var(--space-4);
+}
+
+/* Featured Ceremonies */
+.ceremonies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .ceremonies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ceremonies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ceremony-category-card {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.ceremony-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-saffron);
+}
+
+/* How It Works Steps */
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .how-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .how-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.how-step-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  text-align: center;
+}
+
+.how-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-saffron);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-3);
+  font-size: var(--text-base);
+}
+
+/* Checklist Preview Component */
+.checklist-preview-card {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.checklist-progress-bar {
+  height: 8px;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.checklist-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-saffron), var(--color-sage));
+  border-radius: var(--radius-full);
+}
+
+.checklist-item-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-gray-100);
+  font-size: var(--text-sm);
+}
+
+/* Language Section */
+.language-promo-card {
+  background: linear-gradient(135deg, var(--color-cream) 0%, white 100%);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  border: 1px solid var(--color-saffron-light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .language-promo-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Trust & Safety */
+.trust-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .trust-principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-principle-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  border-left: 4px solid var(--color-saffron);
+}
+
+/* Final CTA */
+.final-cta-section {
+  background: radial-gradient(circle at 50% 50%, rgba(212, 168, 67, 0.15) 0%, white 80%);
+  padding: var(--space-16) 0;
+  text-align: center;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Ceremony Card Image Layout Styles */
+.ceremony-image-wrapper {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.ceremony-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.ceremony-category-card:hover .ceremony-card-image {
+  transform: scale(1.05);
+}
+
+.ceremony-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
