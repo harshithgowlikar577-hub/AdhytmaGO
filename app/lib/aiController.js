@@ -160,10 +160,22 @@ function extractEntities(query = '', previousEntities = {}) {
 /**
  * Detect Intent
  */
-function detectIntent(query = '', previousIntent = null) {
-  const q = query.toLowerCase();
+function detectIntent(query = '', previousIntent = null, previousEntities = {}) {
+  const q = query.toLowerCase().trim();
 
-  // Explicit intent resets
+  // 0. Greetings & conversational phrases → GENERAL_APPLICATION_HELP
+  const greetingPatterns = [
+    /^(hi|hello|hey|hii+|helo|namaste|namaskar|namasthe|namaskaram|howdy|sup|yo)\b/,
+    /^(good\s*(morning|afternoon|evening|day))\b/,
+    /^(how\s*are\s*you|what's\s*up|whats\s*up|how\s*do\s*you\s*do)/,
+    /^(నమస్కారం|నమస్తే|హలో|హాయ్)/,
+    /^(what\s*can\s*you\s*do|help|help\s*me|what\s*do\s*you\s*offer)/,
+  ];
+  if (greetingPatterns.some(p => p.test(q))) {
+    return 'GENERAL_APPLICATION_HELP';
+  }
+
+  // 1. Explicit intent resets
   if (q.includes('forget the priest') || q.includes('want a hall instead') || q.includes('function hall instead') || q.includes('find venue instead')) {
     return 'HALL_SEARCH';
   }
@@ -171,51 +183,108 @@ function detectIntent(query = '', previousIntent = null) {
     return 'PRIEST_SEARCH';
   }
 
-  // Out of scope questions (e.g. "What is Java?", "What is Python?", "Stock market")
-  if (
-    q.includes('what is java') || q.includes('what is python') || q.includes('write code') ||
-    q.includes('who won the match') || q.includes('bitcoin') || q.includes('weather in london')
-  ) {
+  // 2. Out of scope questions
+  const outOfScopePatterns = [
+    /what is (java|python|javascript|react|html|css)\b/,
+    /\b(write code|programming|stock market|bitcoin|crypto|weather in|who won|football|cricket score)\b/,
+  ];
+  if (outOfScopePatterns.some(p => p.test(q))) {
     return 'OUT_OF_SCOPE';
   }
 
-  // General questions directly about ceremonies (e.g. "What is Griha Pravesham?")
+  // 3. General questions about ceremonies / rituals
   if (q.startsWith('what is') || q.startsWith('tell me about') || q.includes('meaning of')) {
-    if (q.includes('griha') || q.includes('vivaha') || q.includes('namakaranam') || q.includes('puja') || q.includes('pooja')) {
+    if (q.includes('griha') || q.includes('vivaha') || q.includes('namakaranam') || q.includes('puja') || q.includes('pooja') || q.includes('upanayanam') || q.includes('vastu')) {
       return 'RITUAL_GUIDANCE';
     }
   }
 
-  if (q.includes('checklist') || q.includes('materials') || q.includes('samagri')) {
+  // 4. Checklist
+  if (q.includes('checklist') || q.includes('materials') || q.includes('samagri') || q.includes('సామగ్రి')) {
     return 'CHECKLIST';
   }
 
-  if (q.includes('nearby temple') || q.includes('temples near me') || q.includes('గుడులు')) {
+  // 5. Nearby temple / temple search
+  if (q.includes('nearby temple') || q.includes('temples near me') || q.includes('temple near') || q.includes('nearest temple') || q.includes('nearest mandir') || q.includes('mandir near') || q.includes('గుడులు') || q.includes('గుడి')) {
     return 'NEARBY_TEMPLE';
   }
-
-  if (q.includes('temple') || q.includes('darshan') || q.includes('archana') || q.includes('seva')) {
-    return q.includes('pooja') || q.includes('puja') ? 'TEMPLE_POOJA' : 'TEMPLE_SEARCH';
+  if (q.includes('temple') || q.includes('mandir') || q.includes('darshan') || q.includes('archana') || q.includes('seva') || q.includes('దేవాలయం')) {
+    return (q.includes('pooja') || q.includes('puja') || q.includes('పూజ')) ? 'TEMPLE_POOJA' : 'TEMPLE_SEARCH';
   }
 
-  if (q.includes('hall') || q.includes('mandapam') || q.includes('venue') || q.includes('convention')) {
+  // 6. Hall / venue search (broad keyword coverage)
+  if (q.includes('hall') || q.includes('mandapam') || q.includes('venue') || q.includes('convention') || q.includes('మండపం') || q.includes('కల్యాణ')) {
     return 'HALL_SEARCH';
   }
 
-  if (q.includes('priest') || q.includes('pandit') || q.includes('purohit') || q.includes('swamy') || q.includes('శాస్త్రి') || q.includes('పంతులు')) {
+  // 7. Priest search (broad keyword coverage including Telugu/informal)
+  if (
+    q.includes('priest') || q.includes('pandit') || q.includes('purohit') || q.includes('poojari') || q.includes('pujari') ||
+    q.includes('swamy') || q.includes('acharya') || q.includes('pandith') || q.includes('pantulu') ||
+    q.includes('శాస్త్రి') || q.includes('పంతులు') || q.includes('పురోహిత') || q.includes('పూజారి') ||
+    /\bkavali\b/.test(q) || /\bkavali\b/.test(q.replace(/priest|pandit|purohit|poojari/g, ''))
+  ) {
     return 'PRIEST_SEARCH';
   }
-
-  if (q.includes('plan') || q.includes('ceremony') || q.includes('organize') || q.includes('arrange')) {
+  // "kavali" alone with ceremony/puja context → priest search
+  if (q.includes('kavali') && (q.includes('pooja') || q.includes('puja') || q.includes('pandit') || q.includes('priest'))) {
+    return 'PRIEST_SEARCH';
+  }
+  // "naaku ... kavali" pattern (Telugu: "I need...")
+  if (/naaku.*kavali/.test(q) || /naku.*kavali/.test(q)) {
+    // Check if they mention priest/hall/temple keywords
+    if (q.includes('priest') || q.includes('pandit') || q.includes('purohit') || q.includes('poojari') || q.includes('pantulu') || q.includes('పంతులు')) {
+      return 'PRIEST_SEARCH';
+    }
+    if (q.includes('hall') || q.includes('venue') || q.includes('mandapam') || q.includes('మండపం')) {
+      return 'HALL_SEARCH';
+    }
+    // Generic "kavali" with no specific service → ceremony planning
     return 'CEREMONY_PLANNING';
   }
 
-  // Keep previous intent if in the middle of a workflow
-  if (previousIntent && INTENT_REQUIREMENTS[previousIntent]) {
-    return previousIntent;
+  // 8. Ceremony planning — explicit ceremony names and related keywords
+  const ceremonyNames = [
+    'griha', 'pravesham', 'housewarming', 'vivaha', 'wedding', 'marriage', 'kalyanam', 'pelli',
+    'namakaranam', 'naming', 'baby naming', 'satyanarayan', 'satyanarayana', 'upanayanam',
+    'thread ceremony', 'vastu', 'ganesh puja', 'ganapathi', 'seemantham', 'annaprasana',
+    'shashtiabdapoorthy', 'gruha', 'గృహప్రవేశం', 'వివాహం', 'నామకరణం', 'సత్యనారాయణ',
+  ];
+  if (q.includes('plan') || q.includes('ceremony') || q.includes('organize') || q.includes('arrange') || q.includes('book') || q.includes('వేడుక') || ceremonyNames.some(n => q.includes(n))) {
+    return 'CEREMONY_PLANNING';
   }
 
-  return 'PRIEST_SEARCH'; // Default primary workflow
+  // 9. If the user provides just a location and we are mid-workflow collecting requirements → keep previous intent
+  const locationWords = [
+    'gachibowli', 'kondapur', 'madhapur', 'kukatpally', 'jubilee hills',
+    'banjara hills', 'miyapur', 'hitech city', 'kphb', 'secunderabad',
+    'begumpet', 'ameerpet', 'hyderabad', 'telangana', 'hyd',
+    'kompally', 'uppal', 'dilsukhnagar', 'lb nagar', 'mehdipatnam',
+    'tolichowki', 'manikonda', 'lingampally', 'chandanagar'
+  ];
+  const isLocationOnly = locationWords.some(loc => q.includes(loc)) && q.split(/\s+/).length <= 4;
+
+  // 10. Keep previous intent if in the middle of a workflow AND user provides data (location, date, etc.)
+  if (previousIntent && INTENT_REQUIREMENTS[previousIntent]) {
+    // If it looks like the user is answering a missing field question
+    const previousRequired = INTENT_REQUIREMENTS[previousIntent];
+    const previousMissing = previousRequired.filter(f => !previousEntities[f]);
+    if (previousMissing.length > 0) {
+      return previousIntent; // Continue the current workflow
+    }
+    // Even if nothing is missing, if it's a short answer, stay in workflow
+    if (q.split(/\s+/).length <= 4) {
+      return previousIntent;
+    }
+  }
+
+  // 11. If input is only a location name with no previous context → general help
+  if (isLocationOnly && !previousIntent) {
+    return 'GENERAL_APPLICATION_HELP';
+  }
+
+  // 12. Default: GENERAL_APPLICATION_HELP (not PRIEST_SEARCH)
+  return 'GENERAL_APPLICATION_HELP';
 }
 
 /**
@@ -305,11 +374,39 @@ export async function processAIConversation({ query, history = [], currentIntent
 
   // === FALLBACK: Built-in regex/keyword engine ===
   const lang = detectLanguage(query);
-  const intent = detectIntent(query, currentIntent);
+  const intent = detectIntent(query, currentIntent, currentEntities);
   const entities = extractEntities(query, currentEntities);
 
   // Fallback flag — lets the frontend know AI is in reduced mode
   const fallbackMeta = { wasGeminiFallback: true, geminiErrorType };
+
+  // 0. Handle Greetings & General Help — friendly welcome, not ceremony question
+  if (intent === 'GENERAL_APPLICATION_HELP') {
+    const msg = lang === 'te'
+      ? 'నమస్కారం! 🙏 నేను మీ అధ్యాత్మGO వేద సహాయకుడిని. మీకు ఏమి సహాయం కావాలి? పురోహితులు, గుడులు, కల్యాణ మండపాలు, లేదా పూజ సామగ్రి — అన్నీ సహాయం చేస్తాను!'
+      : "Namaste! 🙏 I'm your AdhyatmaGO ceremony assistant. I can help you find verified priests, book temple poojas, find function halls, or prepare ceremony checklists. What would you like to do?";
+
+    return {
+      intent: 'GENERAL_APPLICATION_HELP',
+      state: 'START',
+      action: 'NO_ACTION',
+      language: lang,
+      message: msg,
+      entities,
+      required_fields: [],
+      known_fields: [],
+      missing_fields: [],
+      invalid_fields: [],
+      ambiguous_fields: [],
+      next_question: null,
+      confidence: 0.95,
+      requires_backend_data: false,
+      requires_location_permission: false,
+      requires_practitioner_confirmation: false,
+      backend_action: null,
+      ...fallbackMeta,
+    };
+  }
 
   // 1. Handle Out of Scope queries politely
   if (intent === 'OUT_OF_SCOPE') {
@@ -369,21 +466,39 @@ export async function processAIConversation({ query, history = [], currentIntent
     };
   }
 
-  // 3. Handle Ritual Guidance (with return to required field if date was pending)
+  // 3. Handle Ritual Guidance
   if (intent === 'RITUAL_GUIDANCE') {
-    const ceremony = entities.ceremony_type || 'Griha Pravesham';
+    const q2 = query.toLowerCase();
+    const ceremony = entities.ceremony_type || (
+      q2.includes('griha') || q2.includes('pravesham') || q2.includes('housewarming') ? 'Griha Pravesham' :
+      q2.includes('vivaha') || q2.includes('wedding') || q2.includes('marriage') ? 'Wedding Ceremony' :
+      q2.includes('namakaranam') || q2.includes('naming') ? 'Naming Ceremony' :
+      q2.includes('satyanarayan') ? 'Satyanarayan Puja' :
+      q2.includes('upanayanam') || q2.includes('thread') ? 'Upanayanam' :
+      q2.includes('vastu') ? 'Vastu Puja' : 'Griha Pravesham'
+    );
+
+    const descriptions = {
+      'Griha Pravesham': 'a sacred Vedic house-warming ceremony performed to purify and consecrate a new home before moving in, inviting prosperity and positive energy.',
+      'Wedding Ceremony': 'a sacred Vedic marriage ceremony (Vivah Sanskara) that unites two souls through sacred rituals, fire rituals (Saptapadi), and blessings.',
+      'Naming Ceremony': 'a sacred Vedic ceremony (Namakaranam) performed on the 11th or 12th day after birth to officially name the newborn with blessings.',
+      'Satyanarayan Puja': 'a devotional puja performed in honor of Lord Vishnu (Satyanarayan) to give thanks, seek blessings, and fulfill vows.',
+      'Upanayanam': 'the sacred thread ceremony (Yagnopaveetam) marking a young boy\'s formal initiation into Vedic studies and spiritual life.',
+      'Vastu Puja': 'a Vedic ritual to harmonize the energies of a building or plot with the five elements, removing doshas and ensuring peace and prosperity.',
+    };
+    const desc = descriptions[ceremony] || 'a sacred Vedic ceremony with deep spiritual significance.';
     const msg = lang === 'te'
-      ? `${ceremony} అనేది కొత్త గృహంలోకి ప్రవేశించే ముందు శాంతి, శ్రేయస్సు మరియు వాస్తు దోష నివారణ కోసం నిర్వహించే పవిత్రమైన వేడుక. మీ వేడుకను ఏ తేదీన నిర్వహించాలని ఆలోచిస్తున్నారు?`
-      : `${ceremony} is a sacred Vedic ceremony performed to sanctify the new living space and invite positive energy before moving in. What date are you planning for the ceremony?`;
+      ? `${ceremony} అనేది ${desc} మీకు ఈ వేడుక కోసం పురోహితుని కనుగొనడంలో సహాయం చేయనా?`
+      : `${ceremony} is ${desc} Would you like me to help you find a verified priest for this ceremony?`;
 
     const reqs = INTENT_REQUIREMENTS.PRIEST_SEARCH;
     const known = Object.keys(entities).filter(k => reqs.includes(k) && entities[k]);
     const missing = reqs.filter(r => !entities[r]);
 
     return {
-      intent: 'PRIEST_SEARCH',
-      state: 'COLLECTING_REQUIREMENTS',
-      action: missing.length > 0 ? 'ASK_REQUIRED_FIELD' : 'SEARCH_PRIESTS',
+      intent: 'RITUAL_GUIDANCE',
+      state: 'RITUAL_GUIDANCE',
+      action: 'SHOW_GUIDANCE',
       language: lang,
       message: msg,
       entities,
@@ -392,11 +507,11 @@ export async function processAIConversation({ query, history = [], currentIntent
       missing_fields: missing,
       invalid_fields: [],
       ambiguous_fields: [],
-      next_question: missing.length > 0 ? `What ${missing[0]} are you planning?` : null,
+      next_question: missing.length > 0 ? `Would you like me to find a priest for ${ceremony}?` : null,
       confidence: 0.92,
       requires_backend_data: false,
       requires_location_permission: false,
-      requires_practitioner_confirmation: true,
+      requires_practitioner_confirmation: false,
       selected_entity: null,
       backend_action: null,
       ...fallbackMeta,
